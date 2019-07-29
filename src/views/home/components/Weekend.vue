@@ -3,7 +3,7 @@
     <div class="title">周末去哪</div>
     <ul>
       <li
-        v-for="item of recommendList"
+        v-for="item of list"
         class="item border-bottom"
         :key="item.id"
       >
@@ -23,27 +23,8 @@
 <script>
   export default {
     name: 'HomeWeekend',
-    data () {
-      return {
-        recommendList: [{
-          id: '0001',
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg',
-          title: '白鹿温泉加加勒比水上乐园',
-          desc: '激情石家庄首站'
-        },
-          {
-            id: '0002',
-            imgUrl: 'http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg',
-            title: '白鹿温泉加加勒比水上乐园',
-            desc: '激情石家庄首站'
-          },
-          {
-            id: '0003',
-            imgUrl: 'http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg',
-            title: '白鹿温泉加加勒比水上乐园',
-            desc: '激情石家庄首站'
-          }]
-      }
+    props: {
+      list: Array
     }
   }
 </script>
@@ -51,7 +32,6 @@
 <style lang="stylus" scoped>
   @import "~styles/mixins.styl"
   .title
-    margin-top: .2rem
     line-height: .8rem
     background: #eee
     text-indent: 0

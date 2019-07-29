@@ -3,7 +3,7 @@
     <div class="title">热销推荐</div>
     <ul>
       <li
-        v-for="item of recommendList"
+        v-for="item of list"
         class="item border-bottom"
         :key="item.id"
       >
@@ -22,28 +22,9 @@
 <script>
   export default {
     name: 'HomeRecommend',
-    data () {
-      return {
-        recommendList: [{
-          id: '0001',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1606/74/74f937d6d4b0d4cb90.water.jpg_200x200_63a86b4c.jpg',
-          title: '白鹿温泉加加勒比水上乐园',
-          desc: '激情石家庄首站'
-        },
-          {
-            id: '0002',
-            imgUrl: 'http://img1.qunarzz.com/sight/p0/1606/74/74f937d6d4b0d4cb90.water.jpg_200x200_63a86b4c.jpg',
-            title: '白鹿温泉加加勒比水上乐园',
-            desc: '激情石家庄首站'
-          },
-          {
-            id: '0003',
-            imgUrl: 'http://img1.qunarzz.com/sight/p0/1606/74/74f937d6d4b0d4cb90.water.jpg_200x200_63a86b4c.jpg',
-            title: '白鹿温泉加加勒比水上乐园',
-            desc: '激情石家庄首站'
-          }]
-      }
-    }
+    props: {
+      list: Array
+    },
   }
 </script>
 
