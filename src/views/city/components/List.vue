@@ -5,7 +5,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button">{{ this.currentCity}}</div>
           </div>
         </div>
       </div>
@@ -13,7 +13,12 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item of hot" :key="item.id">
+          <div
+            class="button-wrapper"
+            v-for="item of hot"
+            :key="item.id"
+            @click="handleCityClick(item.name)"
+          >
             <div class="button">{{ item.name }}</div>
           </div>
         </div>
@@ -32,7 +37,9 @@
             class="item border-bottom"
             v-for="innerItem of item"
             :key="innerItem.id"
+            @click="handleCityClick(innerItem.name)"
           >{{ innerItem.name }}
+
           </div>
         </div>
 
@@ -43,6 +50,7 @@
 
 <script>
   import BScroll from 'better-scroll' // 上下拉动
+  import {mapState, mapMutations} from 'vuex'
 
   export default {
     name: 'CityList',
@@ -50,6 +58,18 @@
       hot: Array,
       cities: Object,
       letter: String
+    },
+    computed: {
+      ...mapState({
+        currentCity: 'city', // 把vuex里的city这个公有数据，映射到这个组件的计算属性里，映射过来的名字叫做currentCity
+      })
+    },
+    methods: {
+      handleCityClick (city) {
+        this.changeCity(city)
+        this.$router.push('/')
+      },
+      ...mapMutations(['changeCity'])  // 把changeCity这个mutation映射到这个组件里名字叫做changeCity的方法里
     },
     mounted () {
       this.scroll = new BScroll(this.$refs.wrapper)
