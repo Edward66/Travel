@@ -20,7 +20,12 @@
       </div>
 
       <!--       :key和下一层级的重复是没有关系的-->
-      <div class="area" v-for="(item,key) of cities" :key="key">
+      <div
+        class="area"
+        v-for="(item,key) of cities"
+        :key="key"
+        :ref="key"
+      >
         <div class="title border-topbottom">{{ key }}</div>
         <div class="item-list">
           <div
@@ -43,10 +48,19 @@
     name: 'CityList',
     props: {
       hot: Array,
-      cities: Object
+      cities: Object,
+      letter: String
     },
     mounted () {
       this.scroll = new BScroll(this.$refs.wrapper)
+    },
+    watch: {
+      letter () {
+        if (this.letter) {
+          const element = this.$refs[this.letter][0] // 获取到字母对应的区域 -> [div.area][0] Bscroll用到的参数必须是DOM元素
+          this.scroll.scrollToElement(element) // better-scroll提供
+        }
+      }
     }
 
   }
