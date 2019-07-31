@@ -1,5 +1,5 @@
 // 防止关闭本地存储或隐身模式浏览器抛异常
-let defaultCity = '上海'
+let defaultCity = '北京'
 try {
   if (localStorage.city) {
     defaultCity = localStorage.city

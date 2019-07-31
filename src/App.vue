@@ -1,21 +1,23 @@
 <template>
-    <!--当前路由地址所对应的内容-->
+  <!-- keep-alive是vue自带的标签，意思是路由的内容被加载过一次之后就放到内存，再进路由就从内存取，不用重新渲染了 -->
+  <keep-alive>
     <router-view/>
+  </keep-alive>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  export default {
+    name: 'App'
+  }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
 </style>
