@@ -14,22 +14,26 @@
       </div>
     </div>
 
-    <common-gallary
-      :imgs="gallaryImgs"
-      v-show="showGallary"
-      @close="handleGallaryClose"
-    ></common-gallary>
+    <fade-animation>
+      <common-gallary
+        :imgs="gallaryImgs"
+        v-show="showGallary"
+        @close="handleGallaryClose"
+      ></common-gallary>
+    </fade-animation>
   </div>
 
 </template>
 
 <script>
   import CommonGallary from 'common/gallary/Gallary'
+  import FadeAnimation from '../../../common/fade/FadeAnimation'  // 引入的名字和文件名没必要一样
 
   export default {
     name: 'DetailBanner',
     components: {
-      CommonGallary
+      CommonGallary,
+      FadeAnimation
     },
     data () {
       return {
