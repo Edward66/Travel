@@ -1,6 +1,7 @@
 <template>
   <!-- keep-alive是vue自带的标签，意思是路由的内容被加载过一次之后就放到内存，再进路由就从内存取，不用重新渲染了 -->
-  <keep-alive>
+  <!-- 详情页不用做缓存-->
+  <keep-alive exclude="Detail">
     <router-view/>
   </keep-alive>
 </template>

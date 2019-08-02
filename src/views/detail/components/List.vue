@@ -18,7 +18,12 @@
 
 <script>
   export default {
-    name: 'DetailList',  // 这个名字很大的用处就是让我们去使用递归组件
+    /* name的作用
+     * 1. 让我们去使用递归组件
+     * 2. 可以在keep-alive里根据名字取消缓存
+     * 3. 组件的名字取决于name
+     */
+    name: 'DetailList',
     props: {
       list: Array
     }

@@ -2,20 +2,20 @@
   <div>
     <div class="banner" @click="handleBannerClick">
       <img class="banner-img"
-           src="http://img1.qunarzz.com/sight/p0/201403/11/157a60a6859cb12d8a88c81113055c93.jpg_600x330_a20acc2d.jpg">
+           :src="bannerImg">
       <div class="banner-info">
         <div class="banner-title">
-          联邦空中花园
+          {{ this.sightName }}
         </div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe6df;</span>
-          39
+          {{this.gallaryImgs.length}}
         </div>
       </div>
     </div>
 
     <common-gallary
-      :imgs="imgs"
+      :imgs="gallaryImgs"
       v-show="showGallary"
       @close="handleGallaryClose"
     ></common-gallary>
@@ -37,6 +37,11 @@
         imgs: ['http://img1.qunarzz.com/sight/p0/1906/e7/e7276de002459b50a3.img.jpg_r_800x800_5cdd4127.jpg'
           , 'http://img1.qunarzz.com/sight/p0/1906/e8/e88430aafb498100a3.img.jpg_r_800x800_fbb53873.jpg']
       }
+    },
+    props: {
+      sightName: String,
+      bannerImg: String,
+      gallaryImgs: Array
     },
     methods: {
       handleBannerClick () {
