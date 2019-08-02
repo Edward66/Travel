@@ -46,8 +46,11 @@
         }
       }
     },
-    activated () { // 用了keep-alive，所以一被展示，activated就会执行
+    activated () { // 用了keep-alive，页面一被展示，activated就会执行
       window.addEventListener('scroll', this.handleScroll)
+    },
+    deactivated () { // 页面即将被隐藏或者替换成新的页面的时候,这个组件的deactivated会被执行
+      window.removeEventListener('scroll', this.handleScroll)
     }
   }
 </script>
