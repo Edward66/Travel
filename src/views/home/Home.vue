@@ -22,6 +22,7 @@
     components: {
       HomeSwiper,
       HomeHeader,
+      // HomeHeader: () => import('./components/Header'),  // 异步组件
       HomeIcons,
       HomeRecommend,
       HomeWeekend
