@@ -1,11 +1,12 @@
 <template>
   <ul class="list">
+    <!--    prevent阻止touchstart的默认行为，这样滚动字母表的时候就不会有上下拖动的效果了-->
     <li
       class="item"
       v-for="item of letters"
       :key="item"
       :ref="item"
-      @touchstart="handleTouchStart"
+      @touchstart.prevent="handleTouchStart"
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
       @click="handleLetterClick"
